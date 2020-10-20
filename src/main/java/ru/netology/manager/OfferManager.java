@@ -3,11 +3,14 @@ package ru.netology.manager;
 import ru.netology.domain.FlightOffer;
 import ru.netology.repository.OfferRepository;
 
+import java.util.Arrays;
+
 public class OfferManager {
     private OfferRepository repository;
 
     public OfferManager(OfferRepository repository) {
         this.repository = repository;
+        Arrays.sort();
     }
 
     public void add(FlightOffer item) {
