@@ -1,5 +1,6 @@
 package ru.netology.manager;
 
+import ru.netology.comparator.FlightOfferByFlightTimeAscComparator;
 import ru.netology.domain.FlightOffer;
 import ru.netology.repository.OfferRepository;
 
@@ -16,7 +17,7 @@ public class OfferManager {
         repository.save(item);
     }
 
-    public FlightOffer[] findAll(String from, String to) {
+    public FlightOffer[] findAll(String from, String to, FlightOfferByFlightTimeAscComparator comparator) {
         FlightOffer[] result = new FlightOffer[0];
         for (FlightOffer offer : repository.findAll()) {
             if (offer.matches(from, to)) {
@@ -27,7 +28,7 @@ public class OfferManager {
                 result = tmp;
             }
         }
-        Arrays.sort(result);
+        Arrays.sort(result, comparator);
         return result;
     }
 }
