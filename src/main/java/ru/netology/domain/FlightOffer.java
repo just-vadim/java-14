@@ -19,4 +19,11 @@ public class FlightOffer implements Comparable {
         FlightOffer offer = (FlightOffer) o;
         return price = offer.price;
     }
+
+    public boolean matches(String srcAirport, String dstAirport) {
+        if (srcAirport.equalsIgnoreCase(srcAirport) && dstAirport.equalsIgnoreCase(dstAirport)) {
+            return true;
+        }
+        return false;
+    }
 }

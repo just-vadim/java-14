@@ -10,17 +10,16 @@ public class OfferManager {
 
     public OfferManager(OfferRepository repository) {
         this.repository = repository;
-        Arrays.sort();
     }
 
     public void add(FlightOffer item) {
         repository.save(item);
     }
 
-    public FlightOffer[] searchBy(String text) { //TODO Метод должен принимать на вход два параметра
+    public FlightOffer[] findAll(String from, String to) {
         FlightOffer[] result = new FlightOffer[0];
         for (FlightOffer offer : repository.findAll()) {
-            if (offer.matches(text)) {
+            if (offer.matches(from, to)) {
                 FlightOffer[] tmp = new FlightOffer[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
                 int lastIndex = tmp.length - 1;
@@ -28,6 +27,7 @@ public class OfferManager {
                 result = tmp;
             }
         }
+        Arrays.sort(result);
         return result;
     }
 }
