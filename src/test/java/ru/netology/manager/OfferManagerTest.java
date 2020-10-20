@@ -26,21 +26,21 @@ class OfferManagerTest {
     }
 
     @Test
-    void shouldSortSingle() {
+    void shouldFindSingle() {
         FlightOffer[] expected = new FlightOffer[] {secondOffer};
         FlightOffer[] actual = manager.findAll("VTB", "DME");
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    void shouldSortSeveral() {
+    void shouldFindSeveral() {
         FlightOffer[] expected = new FlightOffer[] {thirdOffer, fifthOffer, firstOffer};
         FlightOffer[] actual = manager.findAll("ABA", "DME");
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    void shouldNotSortIfNotExist() {
+    void shouldNotFindIfNotExist() {
         FlightOffer[] expected = new FlightOffer[] {};
         FlightOffer[] actual = manager.findAll("DME", "VTB");
         assertArrayEquals(expected, actual);
