@@ -1,4 +1,4 @@
 package ru.netology.manager;
 
-public class TicketManager {
+public class OfferManager {
 }
