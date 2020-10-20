@@ -17,11 +17,11 @@ public class FlightOffer implements Comparable {
     @Override
     public int compareTo(Object o) {
         FlightOffer offer = (FlightOffer) o;
-        return price = offer.price;
+        return price - offer.price;
     }
 
-    public boolean matches(String srcAirport, String dstAirport) {
-        if (srcAirport.equalsIgnoreCase(srcAirport) && dstAirport.equalsIgnoreCase(dstAirport)) {
+    public boolean matches(String src, String dst) {
+        if (src.equalsIgnoreCase(srcAirport) && dst.equalsIgnoreCase(dstAirport)) {
             return true;
         }
         return false;
